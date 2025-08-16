@@ -63,16 +63,19 @@ export default function MenuGrid({
     return <EmptyState />;
   }
 
-  return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-       {filteredProducts.map(item => (
+  return (<div className="container text-center">
+  <div className="row">
+    {filteredProducts.map((item) => (
+      <div key={item.id} className="col-md-4 mb-4">
         <MenuItem
-          key={item.id}
           item={item}
           onOpenDetails={onOpenDetails}
-          hidePrice={hidePriceOnCard} 
+          hidePrice={hidePriceOnCard}
         />
-      ))}
-    </div>
+      </div>
+    ))}
+  </div>
+</div>
+
   );
 }

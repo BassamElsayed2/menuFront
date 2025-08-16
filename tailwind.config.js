@@ -5,6 +5,13 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
     "./src/pages/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: { extend: {} },
+  theme: {
+    extend: {
+      fontFamily: {
+        arabic: ['"Noto Kufi Arabic"', '"Arial"', "sans-serif"],
+        noto: ['"Noto Kufi Arabic"', '"Arial"', "sans-serif"],
+      },
+    },
+  },
   plugins: [],
 };

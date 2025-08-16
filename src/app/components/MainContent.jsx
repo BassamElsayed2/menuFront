@@ -30,11 +30,18 @@ function ItemDetailsModal({ item, onClose }) {
 
   const displayName = locale === "ar" ? item.name : item.name_en || item.name;
   const displayDescription =
-    locale === "ar" ? item.description : item.description_en || item.description;
+    locale === "ar"
+      ? item.description
+      : item.description_en || item.description;
   const displayType = locale === "ar" ? item.type : item.type_en || item.type;
 
   return (
-    <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
+    <div
+      className="modal-backdrop"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         {/* زر الإغلاق */}
         <button
@@ -76,7 +83,7 @@ function ItemDetailsModal({ item, onClose }) {
           {item.fullData?.sizes?.length > 0 && (
             <div className="modal-sizes-list">
               {item.fullData.sizes.map((size, index) => (
-                <div key={index} className="modal-size-item">
+                <div key={index} className="modal-size-item ">
                   <span className="modal-size-name">
                     {locale === "ar"
                       ? size.size_ar
@@ -127,13 +134,11 @@ export default function MainContent() {
 
   return (
     <>
-      <Header />
-      <Hero />
       <main className="min-h-screen container mx-auto px-4 py-8">
         <FilterBar filter={filter} setFilter={setFilter} />
         <MenuGrid
           onOpenDetails={openDetails}
-          hidePriceOnCard={true} 
+          hidePriceOnCard={true}
           activeFilter={filter}
         />
       </main>

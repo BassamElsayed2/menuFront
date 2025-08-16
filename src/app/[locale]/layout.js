@@ -2,7 +2,7 @@ import "../globals.css";
 import { Providers } from "../components/Providers";
 import { routing } from "../../i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 export const metadata = {
   title: "Flower Terrace",
   description: "منيو مطعم ",
@@ -21,6 +21,23 @@ export default async function RootLayout({ children, params }) {
 
   return (
     <html lang={locale} dir={dir}>
+      <head>
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          as="style"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Providers>{children}</Providers>

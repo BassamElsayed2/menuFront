@@ -16,17 +16,8 @@ export default function Header() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="header-bg sticky top-0 z-50 shadow-lg text-white">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        <div className="flex items-center">
-          <img
-            src="images/test.jpg"
-            alt="شعار المطعم"
-            className="logo-img mr-3"
-          />
-          <h1 className="header-title">{t("header")}</h1>
-        </div>
-
+    <header className="header-bg  top-0   text-white z-50">
+      <div className=" mx-auto  items-center">
         <nav
           className={`desktop-nav hidden md:flex items-center gap-8 ${
             locale === "ar" ? "flex-row-reverse" : "flex-row"
@@ -43,15 +34,19 @@ export default function Header() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="navz flex ml-auto">
           <LanguageSwitcher />
 
           <button
-            className="md:hidden text-white focus:outline-none"
+            className=" md:hidden text-white focus:outline-none"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
+            {isOpen ? (
+              <FiX className="w-6 h-6" />
+            ) : (
+              <FiMenu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </div>
@@ -84,7 +79,7 @@ export default function Header() {
               </div>
 
               <nav
-                className={`mobile-nav flex flex-col gap-5 p-6 text-lg font-medium ${
+                className={`mobile-nav  gap-5 p-6 text-lg font-medium ${
                   locale === "ar"
                     ? "items-end text-right"
                     : "items-start text-left"
@@ -119,6 +114,16 @@ export default function Header() {
           </>
         )}
       </AnimatePresence>
+      <div className="logo">
+        <video
+          src="/images/video.mp4"
+          className="logo-img mr-3"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      </div>
     </header>
   );
 }
